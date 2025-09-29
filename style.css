@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root {
     --color-text: #202020;
-    --primary-blue: #0578ff;
+    --color-primary-blue: #0578ff;
+    --color-title: #202020;
     --white: #fff;
+    --color-bg-donload: #ffc501;
 }
 
 * {
@@ -14,6 +16,21 @@
 
 body {
     background: linear-gradient(180deg, #F5F5F5 0%, #DDECFF 50.17%, #F5F5F5 100%);
+}
+
+h2 {
+    font-weight: 700;
+    /*64px*/
+    font-size: 4rem;
+    color: var(--color-title)
+}
+
+h3 {
+    font-weight: 700;
+    /*62px*/
+    font-size: 3.875rem;
+    text-align: center;
+    color: var(--color-title)
 }
 
 .header-container {
@@ -39,7 +56,8 @@ body {
 
 .header-logo span {
     font-weight: 400;
-    font-size: 34px;
+    /*34px*/
+    font-size: 2.125rem;
     color: var(--color-text);
 }
 .header-menu {
@@ -65,7 +83,8 @@ body {
 .header-menu-items a {
     text-decoration: none;
     font-weight: 400;
-    font-size: 20px;
+    /*20px*/
+    font-size: 1.25rem;
     line-height: 135%;
     text-align: center;
     color: var(--color-text);
@@ -83,13 +102,12 @@ body {
 
 .main-container-info {
     padding: 60px 64px;
-    max-width: 1440px;
     width: 100%;
-    background: var(--primary-blue);
+    background: var(--color-primary-blue);
 }
 
 .main-container-info-items {
-    max-width: 100%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -97,20 +115,47 @@ body {
     flex-wrap: wrap;
 }
 
-.main-container-info-item h3, span{
+.main-container-info-item h4, span{
     text-align: center;
     color: var(--white);
     align-items: center;
 }
 
-.main-container-info-item h3{
+.main-container-info-item h4{
     font-weight: 700;
-    font-size: 50px;
+    /*50px*/
+    font-size: 3.125rem;
 }
 
 .main-container-info-item span{
     font-weight: 500;
-    font-size: 20px;
+    /*20px*/
+    font-size: 1.25rem;
+}
+
+.main-container-download {
+    background-color: var(--color-bg-donload);
+    width: 100%;
+    padding: 128px 20px 116px 20px;
+}
+
+.main-container-download-items {
+    display: flex;
+    flex-direction: column;
+    row-gap: 60px;
+    align-items: center;
+    justify-content: center;
+    margin-inline: auto;
+    max-width: 863px;
+}
+
+.main-container-download-items-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 @media (max-width: 900px) {
@@ -120,6 +165,11 @@ body {
 }
 
 @media (max-width: 768px) {
+    h3 {
+        /*40px*/
+        font-size: 2.5rem;
+    }
+
     .header-container {
         max-width: 100%;
     }
@@ -132,8 +182,11 @@ body {
         display: block;
     }
 
-    .main-container-info {
+    .main-container {
         max-width: 100%;
+    }
+
+    .main-container-info {
         padding: 64px 32px;
     }
 
@@ -145,9 +198,32 @@ body {
         row-gap: 40px;
         margin: 0 auto;
     }
+
+    .main-container-download-items {
+        max-width: 526px;
+        row-gap: 32px;
+    }
+
+    .main-container-download-items-controls {
+        max-width: 462px;
+        margin: 0 auto;
+    }
+
+    .main-container-download-items-controls>*:first-child {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 470px) {
+    .main-container-download-items-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 410px) {
     .main-container-info {
         max-width: 100%;
         padding: 64px 10px;
@@ -155,20 +231,13 @@ body {
 }
 
 @media (max-width: 360px) {
-    .header-container {
-        max-width: 100%;
+    h3 {
+        /*32px*/
+        font-size: 2rem;
     }
 
     .header-logo span {
         display: none;
-    }
-
-    .header-menu-items {
-        display: none;
-    }
-
-    .header-menu-burger {
-        display: block;
     }
 
     .main-container-info {
@@ -185,13 +254,24 @@ body {
         margin: 0 auto;
     }
 
-    .main-container-info-item h3{
-        font-size: 40px;
+    .main-container-info-item h4{
+        /*40px*/
+        font-size: 2.5rem;
     }
 
     .main-container-info-item span{
         font-weight: 500;
-        font-size: 16px;
+        /*16px*/
+        font-size: 1rem;
+    }
+
+    .main-container-download {
+        padding: 32px 5px;
+    }
+
+    .main-container-download-items {
+        max-width: 268px;
+        row-gap: 30px;
     }
 }
 
