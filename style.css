@@ -179,12 +179,12 @@ p {
 
 .main-container-faqs {
     width: 100%;
-    padding-top: 128px;
-    padding-bottom: 128px;
+    padding: 128px 32px;
 }
 
 .main-container-faqs-items {
-    width: 1086px;
+    max-width: 1086px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -277,6 +277,11 @@ p {
         max-width: 100%;
         padding: 64px 10px;
     }
+
+    .main-container-faqs {
+        max-width: 100%;
+        padding: 64px 10px;
+    }
 }
 
 @media (max-width: 360px) {
@@ -321,6 +326,10 @@ p {
     .main-container-download-items {
         max-width: 268px;
         row-gap: 30px;
+    }
+
+    .main-container-faqs {
+        padding: 64px 20px;
     }
 }
 
