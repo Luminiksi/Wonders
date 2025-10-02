@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
     --color-text: #202020;
     --color-primary-blue: #0578ff;
     --color-title: #202020;
     --white: #fff;
     --color-bg-donload: #ffc501;
+    --primary-black-train-50: rgba(32, 32, 32, 0.5)
 }
 
 * {
@@ -31,6 +33,22 @@ h3 {
     font-size: 3.875rem;
     text-align: center;
     color: var(--color-title)
+}
+
+h5 {
+    font-weight: 500;
+    /*18px*/
+    font-size: 1.125rem;
+    line-height: 120%;
+    color: var(--color-text);
+}
+
+p {
+    font-weight: 400;
+    /*16px*/
+    font-size: 1rem;
+    line-height: 140%;
+    color: var(--color-text);
 }
 
 .header-container {
@@ -60,6 +78,7 @@ h3 {
     font-size: 2.125rem;
     color: var(--color-text);
 }
+
 .header-menu {
     flex-grow: 1;
     display: flex;
@@ -115,19 +134,19 @@ h3 {
     flex-wrap: wrap;
 }
 
-.main-container-info-item h4, span{
+.main-container-info-item h4, span {
     text-align: center;
     color: var(--white);
     align-items: center;
 }
 
-.main-container-info-item h4{
+.main-container-info-item h4 {
     font-weight: 700;
     /*50px*/
     font-size: 3.125rem;
 }
 
-.main-container-info-item span{
+.main-container-info-item span {
     font-weight: 500;
     /*20px*/
     font-size: 1.25rem;
@@ -156,6 +175,36 @@ h3 {
     justify-content: space-between;
     gap: 30px;
     flex-wrap: wrap;
+}
+
+.main-container-faqs {
+    width: 100%;
+    padding-top: 128px;
+    padding-bottom: 128px;
+}
+
+.main-container-faqs-items {
+    width: 1086px;
+    margin: 0 auto;
+}
+
+.main-container-faqs-item-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.main-container-faqs-item-text {
+    padding: 16px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.main-container-faqs-item:not(:last-child) {
+    border-bottom: 1px solid var(--primary-black-train-50);
 }
 
 @media (max-width: 900px) {
@@ -209,7 +258,7 @@ h3 {
         margin: 0 auto;
     }
 
-    .main-container-download-items-controls>*:first-child {
+    .main-container-download-items-controls > *:first-child {
         width: 100%;
         display: block;
         text-align: center;
@@ -254,12 +303,12 @@ h3 {
         margin: 0 auto;
     }
 
-    .main-container-info-item h4{
+    .main-container-info-item h4 {
         /*40px*/
         font-size: 2.5rem;
     }
 
-    .main-container-info-item span{
+    .main-container-info-item span {
         font-weight: 500;
         /*16px*/
         font-size: 1rem;
