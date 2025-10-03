@@ -6,7 +6,8 @@
     --color-title: #202020;
     --white: #fff;
     --color-bg-donload: #ffc501;
-    --primary-black-train-50: rgba(32, 32, 32, 0.5)
+    --primary-black-train-50: rgba(32, 32, 32, 0.5);
+    --primary-grey: #90a3bf;
 }
 
 * {
@@ -18,6 +19,13 @@
 
 body {
     background: linear-gradient(180deg, #F5F5F5 0%, #DDECFF 50.17%, #F5F5F5 100%);
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 64px;
+    text-transform: capitalize;
+    color: var(--color-text);
 }
 
 h2 {
@@ -395,6 +403,62 @@ footer {
     .footer-container {
         padding-inline: 32px;
     }
+}
+
+.main-container_skip {
+    display: flex;
+    padding-top: 64px;
+    padding-bottom: 128px;
+}
+
+.skip-controls_person {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--white);
+    border-radius: 10px;
+    width: 100%;
+    padding: 1px 24px;
+}
+
+.skip-controls_trip {
+}
+
+.skip-controls_trip span {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--color-text)
+}
+
+.skip-controls_trip input {
+    border-radius: 10px;
+    padding: 16px 24px;
+    width: 304px;
+    height: 53px;
+    background-color: var(--white);
+    border: none;
+}
+
+.date-input-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 10px;
+    padding: 16px 24px;
+    max-width: 304px;
+    width: 100%;
+    height: 53px;
+    border: none;
+    background: var(--white);
+    color: var(--primary-grey);
+}
+
+.date-input-button {
+    font-weight: 500;
+    /*14px*/
+    font-size: 0.875rem;
+    line-height: 150%;
 }
 
 @media (max-width: 900px) {
