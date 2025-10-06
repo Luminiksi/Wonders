@@ -63,6 +63,10 @@ a {
     text-decoration: none;
 }
 
+button {
+    cursor: pointer;
+}
+
 .header-container {
     display: flex;
     flex-direction: row;
@@ -253,6 +257,10 @@ a {
     margin: 0 auto;
 }
 
+.faqs-items h2 {
+    margin-bottom: 40px;
+}
+
 .faqs-item-title {
     display: flex;
     justify-content: space-between;
@@ -262,6 +270,11 @@ a {
 
 .faqs-item-text {
     padding: 16px 0;
+}
+
+.faqs-btn {
+    border: none;
+    background: transparent;
 }
 
 .hidden {
@@ -774,6 +787,10 @@ footer {
 
     .gallery-right-top img {
         width: 100%;
+    }
+
+    .faqs-items h2 {
+        margin-bottom: 32px;
     }
 }
 
