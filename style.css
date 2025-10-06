@@ -414,7 +414,7 @@ footer {
     color: var(--white);
 }
 
-.main-container_skip {
+.main-container_hero {
     display: flex;
     padding-top: 64px;
     padding-bottom: 128px;
@@ -422,24 +422,24 @@ footer {
     padding-inline: 64px;
 }
 
-.main-container_skip-left {
+.main-container_hero-left {
     max-width: calc((100% - 32px) / 2);
 }
 
-.main-container_skip-left p {
+.main-container_hero-left p {
     margin-bottom: 32px;
     margin-top: 32px;
 }
 
-.main-container_skip-right {
+.main-container_hero-right {
     max-width: calc((100% - 32px) / 2);
 }
 
-.main-container_skip-right img {
+.main-container_hero-right img {
     width: 100%;
 }
 
-.skip-controls_person {
+.hero-controls_person {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -451,7 +451,7 @@ footer {
     justify-content: space-between;
 }
 
-.skip-controls_person label {
+.hero-controls_person label {
     font-weight: 400;
     /*14px*/
     font-size: 0.875rem;
@@ -463,19 +463,19 @@ footer {
     padding-bottom: 7px;
 }
 
-.skip-controls_person input {
+.hero-controls_person input {
     appearance: none;
     position: relative;
 }
 
-.skip-controls_person input:checked:before {
+.hero-controls_person input:checked:before {
     content: url("./assets/icons/check.svg");
     position: absolute;
     top: -14px;
     left: -24px;
 }
 
-.skip-controls_person input:not(:checked):before {
+.hero-controls_person input:not(:checked):before {
     content: url("./assets/icons/uncheck.svg");
     position: absolute;
     top: -12px;
@@ -493,13 +493,13 @@ footer {
     text-align: center;
 }
 
-.skip-controls_trip {
+.hero-controls_trip {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
 }
 
-.skip-controls_trip label {
+.hero-controls_trip label {
     display: block;
     font-weight: 600;
     /*16px*/
@@ -509,7 +509,7 @@ footer {
     margin-bottom: 16px;
 }
 
-.skip-controls_trip input {
+.hero-controls_trip input {
     border-radius: 10px;
     padding: 16px 24px;
     /*width: 304px;*/
@@ -519,7 +519,7 @@ footer {
     border: none;
 }
 
-.skip-controls_trip input::placeholder {
+.hero-controls_trip input::placeholder {
     font-weight: 500;
     /*14px*/
     font-size: 0.875rem;
@@ -527,7 +527,7 @@ footer {
     color: var(--primary-grey);
 }
 
-.skip-calendar {
+.hero-calendar {
     grid-column: 1 / 3;
 }
 
@@ -558,7 +558,7 @@ footer {
     color: var(--primary-grey);
 }
 
-.skip-controls_btn {
+.hero-controls_btn {
     border-radius: 10px;
     padding: 16px 24px;
     width: 100%;
@@ -615,11 +615,11 @@ footer {
         max-width: 100%;
     }
 
-    .main-container_skip-left {
+    .main-container_hero-left {
         max-width: 100%;
     }
 
-    .main-container_skip-right {
+    .main-container_hero-right {
         display: none;
     }
 
