@@ -1,7 +1,21 @@
 import * as Constants from './constants.js'; // Импорт всех констант в один объект
 
+const burgerBtn = document.getElementById("burger");
+const navMobile = document.getElementById("nav-mobile");
+
 const faqsItems = document.getElementById("faqs-items");
 let activeFAQsElement = '0'
+
+burgerBtn.addEventListener('click', () => {
+    navMobile.classList.toggle('hidden');
+})
+
+navMobile.addEventListener('click', (event) => {
+    if (event.target.tagName === 'A') {
+        navMobile.classList.toggle('hidden');
+    }
+})
+
 
 const fillFAQsItems = (FAQS) => {
     faqsItems.innerHTML = '<h2>FAQs.</h2>'
