@@ -17,6 +17,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: linear-gradient(180deg, #F5F5F5 0%, #DDECFF 50.17%, #F5F5F5 100%);
 }
