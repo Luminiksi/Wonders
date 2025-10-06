@@ -137,7 +137,7 @@ a {
     background: var(--color-primary-blue);
 }
 
-.main-container-info-items {
+.info-items {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -146,19 +146,19 @@ a {
     flex-wrap: wrap;
 }
 
-.main-container-info-item h4, span {
+.info-item h4, span {
     text-align: center;
     color: var(--white);
     align-items: center;
 }
 
-.main-container-info-item h4 {
+.info-item h4 {
     font-weight: 700;
     /*50px*/
     font-size: 3.125rem;
 }
 
-.main-container-info-item span {
+.info-item span {
     font-weight: 500;
     /*20px*/
     font-size: 1.25rem;
@@ -223,7 +223,7 @@ a {
     padding: 128px 20px 116px 20px;
 }
 
-.main-container-download-items {
+.download-items {
     display: flex;
     flex-direction: column;
     row-gap: 60px;
@@ -233,7 +233,7 @@ a {
     max-width: 863px;
 }
 
-.main-container-download-items-controls {
+.download-items-controls {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -247,20 +247,20 @@ a {
     padding: 128px 32px;
 }
 
-.main-container-faqs-items {
+.faqs-items {
     max-width: 1086px;
     width: 100%;
     margin: 0 auto;
 }
 
-.main-container-faqs-item-title {
+.faqs-item-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 16px 0;
 }
 
-.main-container-faqs-item-text {
+.faqs-item-text {
     padding: 16px 0;
 }
 
@@ -268,7 +268,7 @@ a {
     display: none;
 }
 
-.main-container-faqs-item:not(:last-child) {
+.faqs-item:not(:last-child) {
     border-bottom: 1px solid var(--primary-black-train-50);
 }
 
@@ -399,12 +399,6 @@ footer {
     line-height: 150%;
     letter-spacing: -0.02em;
     color: var(--white);
-}
-
-@media (max-width: 1100px) {
-    .footer-container {
-        padding-inline: 32px;
-    }
 }
 
 .main-container_skip {
@@ -565,6 +559,12 @@ footer {
     margin-top: 24px;
 }
 
+@media (max-width: 1100px) {
+    .footer-container {
+        padding-inline: 32px;
+    }
+}
+
 @media (max-width: 900px) {
     .main-container-info {
         padding: 60px 44px;
@@ -614,7 +614,7 @@ footer {
         padding: 64px 32px;
     }
 
-    .main-container-info-items {
+    .info-items {
         max-width: 506px;
         width: 100%;
         justify-content: space-between;
@@ -623,17 +623,17 @@ footer {
         margin: 0 auto;
     }
 
-    .main-container-download-items {
+    .download-items {
         max-width: 526px;
         row-gap: 32px;
     }
 
-    .main-container-download-items-controls {
+    .download-items-controls {
         max-width: 462px;
         margin: 0 auto;
     }
 
-    .main-container-download-items-controls *:first-child {
+    .download-items-controls *:first-child {
         width: 100%;
         display: block;
         text-align: center;
@@ -681,7 +681,7 @@ footer {
 }
 
 @media (max-width: 470px) {
-    .main-container-download-items-controls {
+    .download-items-controls {
         flex-direction: column;
         align-items: center;
     }
@@ -722,7 +722,7 @@ footer {
         padding: 30px 20px;
     }
 
-    .main-container-info-items {
+    .info-items {
         width: 100%;
         gap: 5px;
         justify-content: space-between;
@@ -731,12 +731,12 @@ footer {
         margin: 0 auto;
     }
 
-    .main-container-info-item h4 {
+    .info-item h4 {
         /*40px*/
         font-size: 2.5rem;
     }
 
-    .main-container-info-item span {
+    .info-item span {
         font-weight: 500;
         /*16px*/
         font-size: 1rem;
@@ -746,7 +746,7 @@ footer {
         padding: 32px 5px;
     }
 
-    .main-container-download-items {
+    .download-items {
         max-width: 268px;
         row-gap: 30px;
     }
