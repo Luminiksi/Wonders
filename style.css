@@ -8,6 +8,8 @@
     --color-bg-donload: #ffc501;
     --primary-black-train-50: rgba(32, 32, 32, 0.5);
     --primary-grey: #90a3bf;
+    --primary-light-grey: rgba(0, 0, 0, 0.04);
+    --primary-box-shadow: rgba(0, 0, 0, 0.25);
 }
 
 * {
@@ -66,6 +68,10 @@ p {
 
 a {
     text-decoration: none;
+}
+
+li {
+    cursor: pointer;
 }
 
 button {
@@ -139,7 +145,7 @@ button {
     font-weight: 600;
 }
 
-.nav-mobile{
+.nav-mobile {
     position: fixed;
     top: 116px;
     left: 0;
@@ -150,7 +156,7 @@ button {
     width: 100%;
 }
 
-.nav-mobile a{
+.nav-mobile a {
     display: block;
     color: var(--white);
     font-weight: 400;
@@ -536,11 +542,15 @@ footer {
 .hero-controls_trip input {
     border-radius: 10px;
     padding: 16px 24px;
-    /*width: 304px;*/
     width: 100%;
     height: 53px;
     background-color: var(--white);
     border: none;
+    font-weight: 500;
+    /*14px*/
+    font-size: 0.875rem;
+    line-height: 150%;
+    color: var(--color-text);
 }
 
 .hero-controls_trip input::placeholder {
@@ -549,6 +559,36 @@ footer {
     font-size: 0.875rem;
     line-height: 150%;
     color: var(--primary-grey);
+}
+
+.hero-controls_trip input:focus {
+    outline: 1px solid var(--primary-light-grey);
+    box-shadow: 0 8px 24px 0 var(--primary-box-shadow);
+}
+
+.depart-list {
+    border-radius: 12px;
+    padding: 12px 12px;
+    background-color: var(--white);
+    margin-top: 12px;
+    width: 100%;
+    height: 193px;
+    overflow: auto;
+}
+
+.depart-list li {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 171%;
+    color: var(--color-text);
+    margin-bottom: 10px;
+    padding-inline: 12px;
+    border-radius: 6px;
+}
+
+.depart-list li:hover {
+    background-color: var(--primary-light-grey);
 }
 
 .hero-calendar {
@@ -592,7 +632,6 @@ footer {
     text-transform: capitalize;
     color: var(--white);
     border: none;
-    cursor: pointer;
     margin-top: 24px;
 }
 

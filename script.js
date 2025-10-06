@@ -3,6 +3,9 @@ import * as Constants from './constants.js'; // Импорт всех конст
 const burgerBtn = document.getElementById("burger");
 const navMobile = document.getElementById("nav-mobile");
 
+const departList = document.getElementById("depart-list");
+const departInput = document.getElementById("depart-input");
+
 const faqsItems = document.getElementById("faqs-items");
 let activeFAQsElement = '0'
 
@@ -13,6 +16,49 @@ burgerBtn.addEventListener('click', () => {
 navMobile.addEventListener('click', (event) => {
     if (event.target.tagName === 'A') {
         navMobile.classList.toggle('hidden');
+    }
+})
+
+const sortDepartList = (array, value) => {
+    return array.filter(item => {
+        return item.toLowerCase().includes(value.toLowerCase());
+    })
+}
+
+const getDepartList = (array) => {
+    return array.map(item => {
+        const listElement = document.createElement('li');
+        listElement.innerText = item;
+        return listElement;
+    })
+}
+
+const fillDepartList = (array) => {
+    const elements = getDepartList(array)
+    departList.innerText = ""
+    departList.append(...elements)
+}
+
+departInput.addEventListener('focus', () => {
+    departList.classList.toggle('hidden');
+})
+
+departInput.addEventListener('blur', () => {
+    departList.classList.toggle('hidden');
+    fillDepartList(Constants.Stations)
+})
+
+departInput.addEventListener('keyup', () => {
+    fillDepartList(
+        sortDepartList(Constants.Stations, departInput.value)
+    );
+})
+
+departList.addEventListener('mousedown', (event) => {
+    const target = event.target;
+    if (target.tagName === 'LI') {
+        console.log(target)
+        departInput.value = target.innerText;
     }
 })
 
@@ -42,6 +88,7 @@ const fillFAQsItems = (FAQS) => {
 }
 
 fillFAQsItems(Constants.arrayFAQS)
+fillDepartList(Constants.Stations)
 
 
 faqsItems.addEventListener('click', function (event) {
