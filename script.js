@@ -20,8 +20,9 @@ navMobile.addEventListener('click', (event) => {
 })
 
 const sortDepartList = (array, value) => {
+    const searchValue = value.trim()
     return array.filter(item => {
-        return item.toLowerCase().includes(value.toLowerCase());
+        return item.toLowerCase().includes(searchValue.toLowerCase());
     })
 }
 
@@ -40,18 +41,16 @@ const fillDepartList = (array) => {
 }
 
 departInput.addEventListener('focus', () => {
+    fillDepartList(sortDepartList(Constants.Stations, departInput.value));
     departList.classList.toggle('hidden');
 })
 
 departInput.addEventListener('blur', () => {
     departList.classList.toggle('hidden');
-    fillDepartList(Constants.Stations)
 })
 
 departInput.addEventListener('keyup', () => {
-    fillDepartList(
-        sortDepartList(Constants.Stations, departInput.value)
-    );
+    fillDepartList(sortDepartList(Constants.Stations, departInput.value));
 })
 
 departList.addEventListener('mousedown', (event) => {
@@ -88,7 +87,6 @@ const fillFAQsItems = (FAQS) => {
 }
 
 fillFAQsItems(Constants.arrayFAQS)
-fillDepartList(Constants.Stations)
 
 
 faqsItems.addEventListener('click', function (event) {
