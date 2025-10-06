@@ -179,6 +179,8 @@ a {
 
 .gallery-container img {
     width: 100%;
+    border-radius: 10px;
+    max-height: 489px;
 }
 
 .gallery-left {
@@ -644,6 +646,14 @@ footer {
     .gallery-container {
         flex-direction: column;
         gap: 24px;
+    }
+
+    .gallery-right-top {
+        gap: 24px;
+    }
+
+    .gallery-right-top img {
+        max-width: calc((100% - 32px) / 2);
     }
 }
 
