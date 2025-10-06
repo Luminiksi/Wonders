@@ -508,8 +508,15 @@ footer {
 .hero-controls_person input:not(:checked):before {
     content: url("./assets/icons/uncheck.svg");
     position: absolute;
-    top: -12px;
+    top: -10px;
     left: -24px;
+}
+
+.hero-controls_person button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
 }
 
 .person-count {

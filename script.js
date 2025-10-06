@@ -6,8 +6,39 @@ const navMobile = document.getElementById("nav-mobile");
 const departList = document.getElementById("depart-list");
 const departInput = document.getElementById("depart-input");
 
+const personCount = document.getElementById("person-count");
+const personBtnMinus = document.getElementById("person-btn-minus");
+const personBtnPlus = document.getElementById("person-btn-plus");
+
 const faqsItems = document.getElementById("faqs-items");
 let activeFAQsElement = '0'
+
+personBtnPlus.addEventListener('click', () => {
+    let personCountValue = Number(personCount.innerText);
+    personCountValue++;
+    personCount.innerText = personCountValue;
+    if (personCountValue === 2) {
+        const minus = document.createElement('img');
+        minus.src = "./assets/icons/minus-active.svg"
+        personBtnMinus.innerText = ''
+        personBtnMinus.append(minus)
+    }
+})
+
+personBtnMinus.addEventListener('click', () => {
+    let personCountValue = Number(personCount.innerText);
+    if (personCountValue === 1) {
+        return
+    }
+    personCountValue--;
+    if (personCountValue === 1) {
+        const minus = document.createElement('img');
+        minus.src = "./assets/icons/minus.svg"
+        personBtnMinus.innerText = ''
+        personBtnMinus.append(minus)
+    }
+    personCount.innerText = personCountValue;
+})
 
 burgerBtn.addEventListener('click', () => {
     navMobile.classList.toggle('hidden');
