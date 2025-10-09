@@ -1,4 +1,5 @@
-import * as Constants from './constants.js'; // Импорт всех констант в один объект
+import * as Constants from './constants.js';
+import {Calendar} from "./calendar.js";
 
 const burgerBtn = document.getElementById("burger");
 const navMobile = document.getElementById("nav-mobile");
@@ -9,6 +10,16 @@ const departInput = document.getElementById("depart-input");
 const personCount = document.getElementById("person-count");
 const personBtnMinus = document.getElementById("person-btn-minus");
 const personBtnPlus = document.getElementById("person-btn-plus");
+
+const btnForCalendar = document.getElementById("btn-for-calendar");
+const calendarArea = document.getElementById("calendar-area");
+
+const calendarLeft = document.getElementById("calendar-left");
+const calendarRight = document.getElementById("calendar-right");
+const calendarLeftBtn = document.getElementById("calendar-left-btn");
+const calendarRightBtn = document.getElementById("calendar-right-btn");
+const calendarLeftMonth = document.getElementById("calendar-left-month");
+const calendarRightMonth = document.getElementById("calendar-right-month");
 
 const faqsItems = document.getElementById("faqs-items");
 let activeFAQsElement = '0'
@@ -92,6 +103,12 @@ departList.addEventListener('mousedown', (event) => {
     }
 })
 
+btnForCalendar.addEventListener('click', () => {
+    const calendar = new Calendar(calendarLeft, calendarRight,
+        calendarLeftBtn, calendarRightBtn, calendarLeftMonth, calendarRightMonth);
+    calendar.init()
+    calendarArea.classList.toggle('hidden');
+})
 
 const fillFAQsItems = (FAQS) => {
     faqsItems.innerHTML = '<h2>FAQs.</h2>'
@@ -117,9 +134,6 @@ const fillFAQsItems = (FAQS) => {
     firsText.classList.toggle('hidden');
 }
 
-fillFAQsItems(Constants.arrayFAQS)
-
-
 faqsItems.addEventListener('click', function (event) {
     const target = event.target;
     if (target.tagName === 'IMG') {
@@ -141,3 +155,5 @@ faqsItems.addEventListener('click', function (event) {
         activeFAQsElement = id
     }
 });
+
+fillFAQsItems(Constants.arrayFAQS)
