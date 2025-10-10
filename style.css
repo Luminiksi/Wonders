@@ -150,6 +150,7 @@ button {
     padding-top: 128px;
     padding-inline: 32px;
     width: 100%;
+    z-index: 5;
 }
 
 .nav-mobile a {
