@@ -774,7 +774,6 @@ footer {
     height: 53px;
     border: none;
     background: var(--white);
-    color: var(--primary-grey);
 }
 
 .date-input-button span {
@@ -783,6 +782,10 @@ footer {
     font-size: 0.875rem;
     line-height: 150%;
     color: var(--primary-grey);
+}
+
+.date-input-button_value {
+    color: var(--color-text);
 }
 
 .hero-controls_btn {

@@ -10,16 +10,21 @@ export class Calendar {
     #today
     #startDay
     #finishDay
+    #isResetBtn
+    #resetBtn
 
     constructor(calendarLeftAria, calendarRightAria,
                 calendarLeftBtn, calendarRightBtn,
-                calendarLeftMonth, calendarRightMonth) {
+                calendarLeftMonth, calendarRightMonth,
+                resetBtn) {
         this.#leftArea = calendarLeftAria;
         this.#rightArea = calendarRightAria;
         this.#leftButton = calendarLeftBtn;
         this.#rightButton = calendarRightBtn;
         this.#leftMonth = calendarLeftMonth;
         this.#rightMonth = calendarRightMonth;
+        this.#resetBtn = resetBtn;
+        this.isResetBtn = false;
         this.#currentDate = new Date();
         this.#nextDate = new Date();
         this.#nextDate.setMonth(this.#nextDate.getMonth() + 1);
@@ -65,6 +70,9 @@ export class Calendar {
         if (this.#startDay && selectedDay.valueOf() === this.#startDay.valueOf() ||
             this.#finishDay && selectedDay.valueOf() === this.#finishDay.valueOf()) {
             return false
+        }
+        if (!this.#isResetBtn) {
+            this.#resetBtn.classList.add('active-btn')
         }
         if (!this.#startDay) {
             this.#startDay = selectedDay
@@ -207,5 +215,30 @@ export class Calendar {
         this.#render()
         this.#currentDateFill()
         this.#removeSelectedDays()
+    }
+
+    refresh() {
+        this.#startDay = null
+        this.#finishDay = null
+        this.#currentDate = new Date();
+        this.#nextDate = new Date();
+        this.#nextDate.setMonth(this.#nextDate.getMonth() + 1);
+        this.#fullRender()
+    }
+
+    getStartDay() {
+        return this.#startDay
+    }
+
+    getFinishDay() {
+        return this.#finishDay
+    }
+
+    setStartDay(day) {
+        this.#startDay = day
+    }
+
+    setFinishDay(day) {
+        this.#finishDay = day
     }
 }

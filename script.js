@@ -21,6 +21,11 @@ const calendarRightBtn = document.getElementById("calendar-right-btn");
 const calendarLeftMonth = document.getElementById("calendar-left-month");
 const calendarRightMonth = document.getElementById("calendar-right-month");
 
+const calendarResetBtn = document.getElementById("calendar-reset");
+const calendarSaveBtn = document.getElementById("calendar-save");
+const departValueEl = document.getElementById("depart-value");
+const returnValueEl = document.getElementById("return-value");
+
 const faqsItems = document.getElementById("faqs-items");
 let activeFAQsElement = '0'
 
@@ -104,11 +109,57 @@ departList.addEventListener('mousedown', (event) => {
 })
 
 btnForCalendar.addEventListener('click', () => {
-    const calendar = new Calendar(calendarLeft, calendarRight,
-        calendarLeftBtn, calendarRightBtn, calendarLeftMonth, calendarRightMonth);
-    calendar.init()
+    if (calendarArea.classList.contains('hidden')) {
+        const calendar = new Calendar(calendarLeft, calendarRight,
+            calendarLeftBtn, calendarRightBtn, calendarLeftMonth,
+            calendarRightMonth, calendarResetBtn);
+
+        calendar.setStartDay(checkFillDate(departValueEl.innerText))
+        calendar.setFinishDay(checkFillDate(returnValueEl.innerText))
+
+        calendar.init()
+
+        calendarResetBtn.addEventListener('click', () => {
+            calendar.refresh()
+            calendarResetBtn.classList.remove('active-btn');
+            returnValueEl.innerText = 'Return'
+            returnValueEl.classList.toggle('date-input-button_value')
+            departValueEl.innerText = 'Depart'
+            departValueEl.classList.toggle('date-input-button_value')
+        })
+
+        calendarSaveBtn.addEventListener('click', () => {
+            const startDate = calendar.getStartDay()
+            const finishDate = calendar.getFinishDay()
+            if (startDate) {
+                departValueEl.innerText = startDate.toLocaleString('en-GB', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                })
+                departValueEl.classList.toggle('date-input-button_value')
+            }
+            if (finishDate) {
+                returnValueEl.innerText = finishDate.toLocaleString('en-GB', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                })
+                returnValueEl.classList.toggle('date-input-button_value')
+            }
+            calendarArea.classList.toggle('hidden');
+        })
+    }
+
     calendarArea.classList.toggle('hidden');
 })
+
+function checkFillDate(value) {
+    if (value === 'Return' || value === 'Depart') {
+        return null
+    }
+    return new Date(value)
+}
 
 const fillFAQsItems = (FAQS) => {
     faqsItems.innerHTML = '<h2>FAQs.</h2>'
