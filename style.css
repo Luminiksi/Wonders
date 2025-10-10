@@ -725,6 +725,12 @@ footer {
     padding-bottom: 8px;
 }
 
+.today {
+    background-color: var(--primary-light-grey);
+    border-radius: 50%;
+}
+
+
 .calendar__controls {
     display: flex;
     justify-content: flex-end;

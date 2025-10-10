@@ -7,6 +7,7 @@ export class Calendar {
     #rightMonth
     #currentDate
     #nextDate
+    #today
 
     constructor(calendarLeftAria, calendarRightAria,
                 calendarLeftBtn, calendarRightBtn,
@@ -20,22 +21,23 @@ export class Calendar {
         this.#currentDate = new Date();
         this.#nextDate = new Date();
         this.#nextDate.setMonth(this.#nextDate.getMonth() + 1);
+        this.#today = new Date();
     }
 
 
     init() {
-        this.#render()
+        this.#fullRender()
 
         this.#leftButton.addEventListener("click", () => {
             this.#currentDate.setMonth(this.#currentDate.getMonth() - 1);
             this.#nextDate.setMonth(this.#nextDate.getMonth() - 1);
-            this.#render()
+            this.#fullRender()
         })
 
         this.#rightButton.addEventListener("click", () => {
             this.#currentDate.setMonth(this.#currentDate.getMonth() + 1);
             this.#nextDate.setMonth(this.#nextDate.getMonth() + 1);
-            this.#render()
+            this.#fullRender()
         })
     }
 
@@ -97,7 +99,7 @@ export class Calendar {
                 if (!day) {
                     this.#leftArea.innerHTML += `<span class="empty"></span>`
                 } else {
-                    this.#leftArea.innerHTML += `<button class="date">${day}</button>`
+                    this.#leftArea.innerHTML += `<button class="date" id="left-${day}">${day}</button>`
                 }
             })
         })
@@ -107,9 +109,28 @@ export class Calendar {
                 if (!day) {
                     this.#rightArea.innerHTML += `<span class="empty"></span>`
                 } else {
-                    this.#rightArea.innerHTML += `<button class="date">${day}</button>`
+                    this.#rightArea.innerHTML += `<button class="date" id="right-${day}">${day}</button>`
                 }
             })
         })
+    }
+
+    #currentDateFill() {
+        let date = this.#today.getDate()
+        if (this.#currentDate.getMonth() === this.#today.getMonth()) {
+            date = "left-" + date;
+        } else if (this.#nextDate.getMonth() === this.#today.getMonth()) {
+            date = "right-" + date;
+        }
+
+        const dateElement = document.getElementById(date);
+        if (dateElement) {
+            dateElement.classList.add('today');
+        }
+    }
+
+    #fullRender() {
+        this.#render()
+        this.#currentDateFill()
     }
 }
