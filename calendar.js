@@ -104,16 +104,16 @@ export class Calendar {
         }
     }
 
-    #removeSelectedDays() {
+    #renderSelectedDays() {
         if (this.#startDay) {
-            this.#removeSelectedDay(this.#startDay)
+            this.#renderSelectedDay(this.#startDay)
         }
         if (this.#finishDay) {
-            this.#removeSelectedDay(this.#finishDay)
+            this.#renderSelectedDay(this.#finishDay)
         }
     }
 
-    #removeSelectedDay(date) {
+    #renderSelectedDay(date) {
         if (this.#currentDate.getMonth() === date.getMonth() && this.#currentDate.getFullYear() === date.getFullYear()) {
             const day = document.getElementById(`left-${date.getDate()}`)
             day.classList.add('selected-day')
@@ -214,7 +214,7 @@ export class Calendar {
     #fullRender() {
         this.#render()
         this.#currentDateFill()
-        this.#removeSelectedDays()
+        this.#renderSelectedDays()
     }
 
     refresh() {
