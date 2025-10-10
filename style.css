@@ -730,6 +730,10 @@ footer {
     border-radius: 50%;
 }
 
+.selected-day {
+    background-color: var(--color-primary-blue);
+    border-radius: 50%;
+}
 
 .calendar__controls {
     display: flex;

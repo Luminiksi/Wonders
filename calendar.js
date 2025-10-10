@@ -8,6 +8,8 @@ export class Calendar {
     #currentDate
     #nextDate
     #today
+    #startDay
+    #finishDay
 
     constructor(calendarLeftAria, calendarRightAria,
                 calendarLeftBtn, calendarRightBtn,
@@ -22,6 +24,8 @@ export class Calendar {
         this.#nextDate = new Date();
         this.#nextDate.setMonth(this.#nextDate.getMonth() + 1);
         this.#today = new Date();
+        this.#startDay = null
+        this.#finishDay = null
     }
 
 
@@ -39,6 +43,76 @@ export class Calendar {
             this.#nextDate.setMonth(this.#nextDate.getMonth() + 1);
             this.#fullRender()
         })
+
+        this.#leftArea.addEventListener('click', (event) => {
+            this.#selectDay(event.target, this.#currentDate, 5)
+        })
+
+        this.#rightArea.addEventListener('click', (event) => {
+            this.#selectDay(event.target, this.#nextDate, 6)
+        })
+    }
+
+    // Возвращает значение, нужно ли изменять закрашенные части между датами
+    #selectDay(target, monthDate, index) {
+        if (target.tagName !== 'BUTTON') {
+            return false
+        }
+        const id = target.getAttribute('id')
+        const day = id.substring(index)
+        const selectedDay = new Date(monthDate.getFullYear(), monthDate.getMonth(), day)
+        // Проверка на то, мб кликнули на ту же дату
+        if (this.#startDay && selectedDay.valueOf() === this.#startDay.valueOf() ||
+            this.#finishDay && selectedDay.valueOf() === this.#finishDay.valueOf()) {
+            return false
+        }
+        if (!this.#startDay) {
+            this.#startDay = selectedDay
+            target.classList.add('selected-day')
+            return false
+        } else if (this.#startDay > selectedDay && !this.#finishDay) {
+            this.#finishDay = this.#startDay
+            this.#startDay = selectedDay
+        } else if (!this.#finishDay) {
+            this.#finishDay = selectedDay
+        } else if (this.#startDay > selectedDay) {
+            this.#removeSelectedDayClass(this.#startDay)
+            this.#startDay = selectedDay
+        } else {
+            this.#removeSelectedDayClass(this.#finishDay)
+            this.#finishDay = selectedDay
+        }
+        target.classList.add('selected-day')
+        return true
+    }
+
+    #removeSelectedDayClass(date) {
+        if (this.#currentDate.getMonth() === date.getMonth() && this.#currentDate.getFullYear() === date.getFullYear()) {
+            const day = document.getElementById(`left-${date.getDate()}`)
+            day.classList.remove('selected-day')
+        } else if (this.#nextDate.getMonth() === date.getMonth() && this.#nextDate.getFullYear() === date.getFullYear()) {
+            const day = document.getElementById(`right-${date.getDate()}`)
+            day.classList.remove('selected-day')
+        }
+    }
+
+    #removeSelectedDays() {
+        if (this.#startDay) {
+            this.#removeSelectedDay(this.#startDay)
+        }
+        if (this.#finishDay) {
+            this.#removeSelectedDay(this.#finishDay)
+        }
+    }
+
+    #removeSelectedDay(date) {
+        if (this.#currentDate.getMonth() === date.getMonth() && this.#currentDate.getFullYear() === date.getFullYear()) {
+            const day = document.getElementById(`left-${date.getDate()}`)
+            day.classList.add('selected-day')
+        } else if (this.#nextDate.getMonth() === date.getMonth() && this.#nextDate.getFullYear() === date.getFullYear()) {
+            const day = document.getElementById(`right-${date.getDate()}`)
+            day.classList.add('selected-day')
+        }
     }
 
     #getCalendarMatrix = (date) => {
@@ -132,5 +206,6 @@ export class Calendar {
     #fullRender() {
         this.#render()
         this.#currentDateFill()
+        this.#removeSelectedDays()
     }
 }
