@@ -24,7 +24,7 @@ export class Calendar {
         this.#leftMonth = calendarLeftMonth;
         this.#rightMonth = calendarRightMonth;
         this.#resetBtn = resetBtn;
-        this.isResetBtn = false;
+        this.#isResetBtn = false;
         this.#currentDate = new Date();
         this.#nextDate = new Date();
         this.#nextDate.setMonth(this.#nextDate.getMonth() + 1);
@@ -73,6 +73,7 @@ export class Calendar {
         }
         if (!this.#isResetBtn) {
             this.#resetBtn.classList.add('active-btn')
+            this.#isResetBtn = true
         }
         if (!this.#startDay) {
             this.#startDay = selectedDay
@@ -220,6 +221,7 @@ export class Calendar {
     refresh() {
         this.#startDay = null
         this.#finishDay = null
+        this.#isResetBtn = false;
         this.#currentDate = new Date();
         this.#nextDate = new Date();
         this.#nextDate.setMonth(this.#nextDate.getMonth() + 1);
