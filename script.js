@@ -58,11 +58,19 @@ personBtnMinus.addEventListener('click', () => {
 
 burgerBtn.addEventListener('click', () => {
     navMobile.classList.toggle('hidden');
+
+    if (!navMobile.classList.contains('hidden')) { // меню появилось
+        document.querySelector('html').style.overflowY = 'hidden'
+    }
+    else {
+        document.querySelector('html').style.overflowY = 'auto'
+    }
 })
 
 navMobile.addEventListener('click', (event) => {
     if (event.target.tagName === 'A') {
-        navMobile.classList.toggle('hidden');
+        navMobile.classList.add('hidden');
+        document.querySelector('html').style.overflowY = 'auto'
     }
 })
 
